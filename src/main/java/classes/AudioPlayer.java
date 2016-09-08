@@ -15,13 +15,12 @@ public class AudioPlayer implements MediaPlayer {
 
     if (audioType.equalsIgnoreCase("mp3")) {
 
-      System.out.printf("Now listening mp3 file " +fileName );
-    } else if (audioType.equalsIgnoreCase("vlc") || audioType.equalsIgnoreCase("vlc")) {
-      mediaPlayerAdapter = new MediaPlayerAdapter("vlc");
-      mediaPlayerAdapter.play("mp3", "slayer-raining_blodd");
-    }
+      System.out.println("Now listening mp3 file " + fileName);
 
-    else{
+    } else if (audioType.equalsIgnoreCase("mp4") || audioType.equalsIgnoreCase("vlc")) {
+      mediaPlayerAdapter = new MediaPlayerAdapter(audioType);
+      mediaPlayerAdapter.play(audioType, fileName);
+    } else {
       System.out.println("Imcompatibile type of file , please downloads more codecs.... Sorry REaly sorry :(");
     }
   }
